@@ -30,7 +30,9 @@ from sqlalchemy import func
 app = Flask(__name__, static_url_path='/static')
 
 # Required to use Flask sessions and the debug toolbar
-app.secret_key = "ABC"
+# app.secret_key = "ABC"
+
+app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY", "abcdef")
 
 # Normally, if you use an undefined variable in Jinja2, it fails silently.
 # This is horrible. Fix this so that, instead, it raises an error.
