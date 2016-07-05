@@ -1,0 +1,81 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1>Progress on {{ new_recipe_date }}</h1>
+
+<div class="col-xs-12 col-md-4 col-md-offset-0">
+  <form action='/redirect-calculate-recipes/date', method='GET'> 
+    Select Date:
+      <input class="form-control" id="datePicker" type="date" name="date" value="YYYY-MM-DD">
+      <input class="btn btn-primary" type="submit" value= "view chart"><br><br><br><br>
+  </form>
+</div>
+
+<script>
+
+  Date.prototype.toDateInputValue = (function() {
+      var local = new Date(this);
+      local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+      return local.toJSON().slice(0,10);
+  });
+
+  document.getElementById('datePicker').value = new Date().toDateInputValue();
+
+
+</script>
+
+  <div class="nutritional_data_bar">
+      <canvas id="barChart"></canvas>
+      <div id="barLegend" class="bar-legend"></div>
+   </div>
+
+
+   <script>
+ 
+
+      $(function() {
+      var data = {{ recipe_totals|tojson|safe }};
+      var data = JSON.parse(data);
+      var nutrition_data = { 
+      	labels: ["% Total Fat", "% Total Carbs", "% Total Protein"],
+      	datasets: [
+      	{
+      		label: "Daily percentages",
+      		fillColor: "rgba(052,152,219,0.5)",
+      		StrokeColor: "rgba(052,152,219,0.8)",
+      		highlightFill: "rgba(052,152,219,0.75)",
+      		highlightStroke: "rgba(052,152,219,1)",
+      		data: [data["total_fat"], data["total_carbs"], data["total_protein"]]
+
+      	}
+
+      ]
+     };
+
+	  var options = {
+	    scaleBeginAtZero: true,
+	    animation: true,
+	    responsive: true,
+
+	   };
+
+
+    var ctx_bar = document.getElementById("barChart").getContext("2d");
+    var myBarChart = new Chart(ctx_bar).Bar(nutrition_data, options);
+    // var ctx_doghnut = $("#doghnutChart").get(0).getContext("2d");
+  
+    // var myDoughnutChart = new Chart(ctx_doghnut).Doughnut(nutrition_data, { 
+    //               animateScale: true}); 
+    // $('#barLegend').html(myBarChart.generateLegend());
+    // var ctx_donut = $("#donutChart").get(0).getContext("2d");
+    // function makeDonutChart(data) {
+    //  var myDonutChart = new Chart(ctx_donut).Doughnut(data, options);
+    //   $('#donutLegend').html(myDonutChart.generateLegend());
+    // };
+	});
+  </script>
+
+{% include "actions.html" %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-md-4 col-md-offset-4">
+
+			<h2>Login</h2>
+
+			<form action="/process-login" method="POST">
+			    <div class="form-group">
+			    	<label for="username">Username:</label>
+			    	<input class="form-control" type="text" name="username">
+			    </div>
+			    <div class="form-group">
+				    <label for="password">Password:</label>
+				    <input class="form-control" type="password" name="password" required />
+				</div>
+			    
+			    <input class="btn btn-primary"  type="submit" value="submit">
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+{% endblock %}

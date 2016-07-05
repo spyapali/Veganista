@@ -1,0 +1,56 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Welcome {{ firstname }}!</h1>
+
+ 
+<!-- <script type="text/javascript" src="static/jquery.autocomplete.js"></script> -->
+<!-- <h3>Calculated BMI: </h3>
+
+<h3> Calculated Height Requirement: </h3> 
+
+<h3> Calculated Fat Requirement: </h3>
+
+Here is your calculated BMI, and here is your calculated protein, fat and carbohydrate requirements.
+
+<h3> Calculated Carb Requirement: </h3> -->
+<!-- 
+<h4> List of Recipes: </h4>  -->
+
+<!-- convert bottom into a button -->
+
+<form action='/user/input' method=['GET']>
+	<label for="input">Please enter name of dish:</label>
+ 	<input type="text" name="input" id="autocomplete" class="form-control" placeholder="ex: guacamole" required />
+ 	<br><br>
+ 	<label> Serving: 1 </label>
+ 	<br><br>
+ 	<!-- 	<select>
+ 			<option value="1">1</option>
+ 			<option value="2">2</option>
+ 			<option value="3">3</option>
+ 			<option value="4">4</option>
+ 		</select><br><br> -->
+ 	<div id="selection" class="required"></div>
+ 	<input class="btn btn-primary" type="submit" value="submit">
+</form>
+
+
+<script type="text/javascript">
+
+$(function() {	
+	$("#autocomplete").autocomplete({
+		serviceUrl:'ajaxautocomplete',
+		type: 'POST',
+		width: 450,
+		showNoSuggestionNotice: true,
+		noSuggestionNotice: 'No more suggestions in database',
+	}); 
+});
+
+</script>
+
+{% include "actions.html" %}
+
+{% endblock %}

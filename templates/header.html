@@ -1,0 +1,21 @@
+<div class="header">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<a class="logo" href="/"><i class="fa fa-leaf"></i> Veganista</a>
+				<div class="pull-right">
+					{% if session.has_key("user_id") %}
+						<a href='/logout' class="btn btn-danger"><i class="fa fa-sign-out"></i> Logout</a>
+					
+					{% else %}
+
+
+						<form action='/login'>
+							<input class="btn btn-primary" type="submit" value="Login">
+						</form>
+					{% endif %}
+				</div>	
+			</div>
+		</div>	
+	</div>	
+</div>

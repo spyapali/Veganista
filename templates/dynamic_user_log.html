@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ firstname }}'s Dishes on {{ new_recipe_date }}</h1><br>
+
+
+
+
+<!-- <h3>Calculated BMI: </h3>
+
+<h3> Calculated Height Requirement: </h3> 
+
+<h3> Calculated Fat Requirement: </h3>
+
+Here is your calculated BMI, and here is your calculated protein, fat and carbohydrate requirements.
+
+<h3> Calculated Carb Requirement: </h3> -->
+<!-- 
+<h4> List of Recipes: </h4>  -->
+
+
+<!-- convert bottom into a button -->
+
+
+
+ 	<ul>
+ 		{% for input in recipe_inputs %}
+ 			<li>
+ 				<a id="link" href= "/recipe/input/{{ input.input_name }}">
+ 					{{ input.input_name.title() }}     
+ 				</a>
+ 			</li>
+ 		{% endfor %}
+ 	</ul><br><br><br>
+
+
+
+
+
+<a class="btn btn-default" href='/calculate-recipes/{{ recipe_date }}'><i class="fa fa-bar-chart"></i></i> View Daily Progress</a>
+<a class="btn btn-default" href="/dish-directory"><i class="fa fa-leaf"></i> Dish Directory</a>
+<a class="btn btn-default" href="/user-log/input_name"><i class="fa fa-calendar"></i> View Day</a>
+<a class="btn btn-default" href="/calculate-recipe-totals"><i class="fa fa-line-chart"></i> Show Overall Progress</a>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Select Date</h1>
+
+
+<!-- <h3>Calculated BMI: </h3>
+
+<h3> Calculated Height Requirement: </h3> 
+
+<h3> Calculated Fat Requirement: </h3>
+
+Here is your calculated BMI, and here is your calculated protein, fat and carbohydrate requirements.
+
+<h3> Calculated Carb Requirement: </h3> -->
+<!-- 
+<h4> List of Recipes: </h4>  -->
+
+
+<!-- convert bottom into a button -->
+
+
+
+
+<form action="/show_recipes_date/date", method='GET'> 
+	Select Date:
+		<input class="form-control" id="datePicker" type="date" name="date" value="YYYY-MM-DD">
+		<input class="btn btn-primary" type="submit" value= "see dishes"><br><br><br><br>
+</form>
+
+<script>
+
+	Date.prototype.toDateInputValue = (function() {
+	    var local = new Date(this);
+	    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+	    return local.toJSON().slice(0,10);
+	});
+
+	document.getElementById('datePicker').value = new Date().toDateInputValue();
+
+
+</script>
+
+
+{% include "actions.html" %}
+
+{% endblock %}

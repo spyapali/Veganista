@@ -1,0 +1,58 @@
+.header {
+	background-color: #606060;
+	padding: 10px;
+	color: white;
+}
+
+.header .logo {
+	color: white;
+	font-size: 23px;
+}
+
+
+.header .logo i {
+	color: #2ecc71 !important;
+}
+
+
+
+.header a:hover span {
+	color: #ccc;
+};
+
+ul {
+    list-style-type: none !important;
+}
+
+.polar-legend li span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+   	list-style-type: none;
+}
+
+.line-legend li span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+    list-style-type: none;
+    
+}
+
+.bar-legend li span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+    list-style-type: none;
+}
+
+
+.autocomplete-selected { padding: 6px; background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
+.autocomplete-suggestion { border-bottom: 1px solid #ccc; padding: 6px; white-space: nowrap; overflow: hidden; }
+.autocomplete-suggestions { border: 1px solid #999; background: white; overflow: auto; }
