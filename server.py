@@ -1,14 +1,16 @@
 """Veganista Project."""
 
-import os
 
 from __future__ import division
+
+import os
+
+import requests
 
 from jinja2 import StrictUndefined
 
 from flask import Flask, render_template, redirect, request, flash, session, json, url_for
 
-import requests
 
 from flask_debugtoolbar import DebugToolbarExtension
 
