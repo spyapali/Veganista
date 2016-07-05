@@ -201,6 +201,7 @@ def show_user_log():
     return render_template("user_log.html", user=user, firstname=firstname)
 
 
+
 @app.route('/dish-directory')
 def show_dishes_directory():
     """Show dishes directory page"""
@@ -402,6 +403,11 @@ def calculate_recipes(recipe_date):
 
 
 
+@app.route("/error")
+def error():
+    raise Exception("Error!")
+
+
 
 #
 # @app.route('/recipe/recipe-nutrition/<input_name>')
@@ -557,11 +563,18 @@ def log_out_user():
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the point
     # that we invoke the DebugToolbarExtension
-    app.debug = False
+    #app.debug = False
 
-    connect_to_db(app)
+    connect_to_db(app, os.environ.get("DATABASE_URL"))
+
+    #connect_to_db(app)
 
     # Use the DebugToolbar
-    DebugToolbarExtension(app)
+    #DebugToolbarExtension(app)
 
-    app.run()
+    DEBUG = "NO_DEBUG" not in os.environ
+    PORT = int(os.environ.get("PORT", 5000))
+
+    app.run(host="0.0.0.0", port=PORT, debug=DEBUG)
+
+    # app.run()
