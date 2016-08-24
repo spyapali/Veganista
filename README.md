@@ -11,8 +11,6 @@ Veganista is a vegan nutrition tracker that allows users to be aware of whether 
 * JQUERY 
 * Javascript/HTML/CSS
 
-Veganista is open source on Github.
-
 ### Features
 
 * Enter in dishes: Users can enter in dishes which they have eaten.
