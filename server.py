@@ -179,9 +179,9 @@ def process_input():
         db.session.commit()
 
         user = User.query.get(user_id)
-        firstname = user.first_name
-
-        input_name = input_obj.input_name
+        # first_name = user.first_name
+        #
+        # input_name = input_obj.input_name
 
         flash('Your dish has been stored.')
 
@@ -215,7 +215,6 @@ def show_dishes_directory():
     user_id=session["user_id"]
     user = User.query.get(user_id)
     firstname = user.first_name
-    input_names_list = []
 
     # Creating dictionary to grab unique dish names that the user entered to display in their dish directory.
     input_users = Input.query.filter(Input.user_id == user_id).all()
@@ -521,7 +520,7 @@ def process_recipe_info(input_name):
     # search for the term within the database.
     # if not there, call the api and search for the information within the api.
     user_recipe_obj = Recipe.query.filter_by(input_name=input_name).first()
-    if (user_recipe_obj == None):
+    if (user_recipe_obj is None):
         return redirect(url_for('has_found_error', input_name=input_name))
 
 
