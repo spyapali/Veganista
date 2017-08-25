@@ -23,11 +23,7 @@ Veganista is open source on Github.
 
 * Dish Directory: Users can click on the dish directory button, which routes to a function that grabs all the dishes from the dish table which the user has entered and passes it into an HTML template using jinja. As a result, users can see a list of all the dishes they have eaten. 
 
-<img src="/Gifs/dish_directory.png" alt="dish_directory">
-
 * Dishes by Day: Users can view dishes they have eaten on a particular day, by selecting a date on the drop down calendar menu and pressing submit. This routes to a function which grabs all the dishes eaten on a particular date in the dish table (using SQL Alchemy) and then passes it into an HTML template using jinja. 
-
-<img src="/Gifs/viewing_dishes_on_day_rs.gif" alt="dishes_time">
 
 * Daily nutritional progress: When users decide to view their daily nutritional progress, they have an option to click on the "view daily progress" button which routes to a function that:
   * uses SQLAlchemy to grab all the dishes on a certain date
@@ -37,11 +33,7 @@ Veganista is open source on Github.
   * pass the javascript object into a chart object using ChartJS.
   * As a result, users van view a bar chart that shows them the total percentages of fat, protein and carbohydrates they have consumed for the day, giving them an estimate of how much more they need to consume, or whether they have exceeded their daily recommendations. 
 
-<img src="/Gifs/bar_chart_rs.gif" alt="daily_time">
-
 * Overall nutritional progress: When users click on "Show Overall Progress", with SQLAlchemy, all the dishes in the database corresponding to that user get grouped by date, and get stored into a python dictionary, with the key being the date, and the value being the list of dishes corresponding to that date. The dish names stored in the dictionary get queried in the dish nutrition table, and the nutritional information passed back gets summed up by macronutrient and is stored into three separate lists in order of date: one for protein, fat and carbs. These three lists get passed as javascript objects into a chartJS object. What the user eventually sees is a line chart showing them their daily totals of fat, carbohydrates and protein percentages day by day over time, so that they can gauge whether they are improving their nutritional intake or not. 
-
-<img src="/Gifs/overall_progress_rs.gif" alt="overall_time">
 
 
 ### Version 2.0
