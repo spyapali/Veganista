@@ -19,8 +19,6 @@ Veganista is open source on Github.
 
 * Dish Nutrition: A dish entry, when clicked on, queries the dish table (by input name) for daily percentages of carbohydrates, protein and fat that the user satisfies through eating the meal. This information gets passed through a chart object in ChartJS and renders on an HTML page as a Polar Area Chart. 
 
-<img src="/Gifs/search.gif" alt="search">
-
 * Dish Directory: Users can click on the dish directory button, which routes to a function that grabs all the dishes from the dish table which the user has entered and passes it into an HTML template using jinja. As a result, users can see a list of all the dishes they have eaten. 
 
 * Dishes by Day: Users can view dishes they have eaten on a particular day, by selecting a date on the drop down calendar menu and pressing submit. This routes to a function which grabs all the dishes eaten on a particular date in the dish table (using SQL Alchemy) and then passes it into an HTML template using jinja. 
